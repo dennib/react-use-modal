@@ -1,0 +1,30 @@
+{
+  "name": "react-use-modal",
+  "version": "0.0.1",
+  "description": "A custom hook for easy and quick modal management for React",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dennib/useModal.git"
+  },
+  "keywords": [
+    "react",
+    "typescript",
+    "modal",
+    "dialog"
+  ],
+  "author": "Denni Bevilacqua",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dennib/useModal/issues"
+  },
+  "homepage": "https://github.com/dennib/useModal#readme",
+  "devDependencies": {
+    "@types/react": "^18.0.28",
+    "react": "^18.2.0",
+    "typescript": "^4.9.5"
+  }
+}
