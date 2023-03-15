@@ -2,8 +2,11 @@
   "name": "react-use-modal",
   "version": "0.0.1",
   "description": "A custom hook for easy and quick modal management for React",
-  "main": "index.js",
+  "main": "lib/useModal.js",
+  "types": "lib/useModal.d.ts",
+  "type": "module",
   "scripts": {
+    "build": "rollup -c",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,9 +25,17 @@
     "url": "https://github.com/dennib/useModal/issues"
   },
   "homepage": "https://github.com/dennib/useModal#readme",
-  "devDependencies": {
-    "@types/react": "^18.0.28",
+  "peerDependencies": {
     "react": "^18.2.0",
-    "typescript": "^4.9.5"
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-babel": "^6.0.3",
+    "@types/react": "^18.0.28",
+    "typescript": "^4.9.5",
+    "babel-core": "^6.26.3",
+    "babel-runtime": "^6.26.0",
+    "rollup": "^3.19.1",
+    "rollup-plugin-typescript2": "^0.34.1"
   }
 }
