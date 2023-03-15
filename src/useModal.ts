@@ -20,16 +20,11 @@ const useModal = (config?: IModalConfig): IUseModalReturn => {
   const updateModalConfig = (config: Partial<IModalConfig>) =>
     setModalConfig(prev => ({ ...prev, ...config }));
 
-  const extendConfig = {
-    ...modalConfig,
-    handleClose: hideModal,
-  };
-
   return {
     toggleModal,
     showModal,
     hideModal,
-    modalConfig: extendConfig,
+    modalConfig,
     updateModalConfig,
     setModalConfig,
   };
