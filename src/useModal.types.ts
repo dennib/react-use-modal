@@ -11,13 +11,9 @@ export interface IUseModalReturn {
 export interface IModalConfig {
   open?: boolean;
   title?: string;
-  centerContent?: boolean;
-  showActionsDivider?: boolean;
   showCloseIcon?: true;
   children?: ReactNode;
   buttons?: IModalButton[];
-  fullWidthButtons?: true;
-  stretchButtons?: boolean;
 }
 
 export interface IExtendedModalConfig extends IModalConfig {
