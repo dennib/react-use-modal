@@ -2,8 +2,8 @@
   "name": "react-use-modal",
   "version": "0.0.1",
   "description": "A custom hook for easy and quick modal management for React",
-  "main": "lib/useModal.js",
-  "types": "lib/useModal.d.ts",
+  "main": "dist/useModal.js",
+  "types": "dist/useModal.d.ts",
   "type": "module",
   "scripts": {
     "build": "rollup -c",
