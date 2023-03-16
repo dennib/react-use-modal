@@ -30,3 +30,5 @@ export interface IModalButton {
   disabled?: boolean;
   disableClose?: boolean;
 }
+
+export type ModalProps = IExtendedModalConfig;
