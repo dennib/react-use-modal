@@ -4,7 +4,7 @@ export interface IUseModalReturn {
   toggleModal: () => void;
   showModal: () => void;
   hideModal: () => void;
-  modalConfig: IModalConfig;
+  modalConfig: IExtendedModalConfig;
   updateModalConfig: (config: Partial<IModalConfig>) => void;
   setModalConfig: Dispatch<SetStateAction<IModalConfig>>;
 }
@@ -20,6 +20,9 @@ export interface IModalConfig {
   stretchButtons?: boolean;
 }
 
+export interface IExtendedModalConfig extends IModalConfig {
+  handleClose: () => void;
+}
 export interface IModalButton {
   text: string;
   style: CSSProperties;
