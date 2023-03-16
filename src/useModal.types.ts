@@ -21,7 +21,7 @@ export interface IExtendedModalConfig extends IModalConfig {
 }
 export interface IModalButton {
   text: string;
-  style: CSSProperties;
+  style?: CSSProperties;
   onClick?: () => void;
   disabled?: boolean;
   disableClose?: boolean;
