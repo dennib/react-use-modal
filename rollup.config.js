@@ -4,7 +4,7 @@ import terser from "@rollup/plugin-terser";
 import hookPackage from "./package.json" assert { type: "json" };
 
 export default {
-  input: "src/useModal.ts",
+  input: "src/index.ts",
   external: ["react", "react-dom"],
   output: [
     {
