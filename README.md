@@ -1,8 +1,12 @@
 # useModal
 
-![banner](https://user-images.githubusercontent.com/13068594/226100508-84efce17-4f13-4800-a507-ba9ac42e8f26.jpg)
+![banner2](https://user-images.githubusercontent.com/13068594/226136792-623a7e44-d93a-4b04-b8b4-2ff7c6f40336.jpg)
 
 react-use-modal is a custom hook that provides a flexible and reusable way to manage modals in React applications.
+
+Use a single line of `jsx` tag to insert your `Modal component` in page and use `useModal` configuration as props. Then go from there: update the same modal with dynamic content with functions provided by the hook.
+
+In its basic implementation `useModal` lets you manage multiple modals in page in a reusable way without the need to write complex jsx code with as many Modal components (and relative states) as the number of different modals you want.
 
 ## Highlights
 
@@ -16,8 +20,9 @@ react-use-modal is a custom hook that provides a flexible and reusable way to ma
 - [Installation](#installation)
 - [Usage](#usage)
   - [Basic](#basic)
-  - [Advanced](#advanced)
+  - [Alternative](#alternative)
     - [Partial config update](#update-current-config-partially)
+    - [Decoupled logic](#decoupled-logic)
 - [API](#api)
   - [Properties and methods](#properties-and-methods)
   - [Hook configuration / Modal props](#hook-configuration--modal-props)
@@ -101,11 +106,11 @@ const MyPageComponent = () => {
 
 > _Basic example: click on "Show modal" button will execute `setModalConfig` with the config we defined_.
 
-### Advanced
+### Alternative
 
 #### **Update** current config **partially**
 
-_Maybe you want to update only part of current `modalConfig`, let's say we have an open modal and we would like to change part of it's content when the user presses one of it's buttons. We can achieve this by using the functino `updateModalConfig` returned by the hook like so_
+Maybe you want to update only part of current `modalConfig`, let's say we have an open modal and we would like to change part of it's content when the user presses one of it's buttons. We can achieve this by using the functino `updateModalConfig` returned by the hook like so
 
 ```jsx
 const MyPageComponent = () => {
@@ -148,12 +153,59 @@ const MyPageComponent = () => {
 };
 ```
 
-_Here we've added a second button, the cancel button simply abort the operation closing the modal (so has no need for additional handlers, the confirm button is stopped from closing the modal, we pass it a handler which calls `updteModalConfig` from the hook and we update with it only the parts of the config that we need._
+Here we've added a second button, the cancel button simply abort the operation closing the modal (so has no need for additional handlers, the confirm button is stopped from closing the modal, we pass it a handler which calls `updteModalConfig` from the hook and we update with it only the parts of the config that we need.
 
 ![example2](https://user-images.githubusercontent.com/13068594/226114740-d2d81e7c-ca27-4b9e-a055-0eb1de71a757.jpg)
 
-> _Advanced usage: here you can see `updateModalConfig` in action, passing from previous config (left) to partially modified one (right)_.
-## Examples
+> _Alternative usage: here you can see `updateModalConfig` in action, passing from previous config (left) to partially modified one (right)_.
+
+#### Decoupled logic
+
+If you have some complex, maybe verbose piece of `jsx` (eg. for `children` or `buttons`) you can decouple some props handling from the hook thus leveraging from it only part of the configuration while managing the other part manually in your page/component, let's see an example for state dependent children.
+
+```jsx
+const initialModalConfig = {
+  title: "I'm a complex modal!",
+};
+
+const MyPageComponent = () => {
+  const { modalConfig, showModal } = useModal();
+  const [isSomethingActive, setIsSomethingActive] = useState < boolean > false;
+
+  const currentButtons: IModalButton[] = isSomethingActive
+    ? [{ text: "Button for active state" }]
+    : [{ text: "Inactive btn 1" }, { text: "Inactive btn 2" }];
+
+  return (
+    <>
+      <div onClick={showModal} className="btn">
+        Show modal
+      </div>
+
+      <div
+        onClick={() => setIsSomethingActive((prev) => !prev)}
+        className="btn"
+      >
+        Toggle active state
+      </div>
+
+      <Modal {...modalConfig} buttons={currentButtons}>
+        {isSomethingActive ? (
+          <div>Some jsx here for the active state</div>
+        ) : (
+          <div>Some other jsx for inactive state</div>
+        )}
+      </Modal>
+    </>
+  );
+};
+```
+
+Here yoy can see an example of `useModal` usage with non-empty initial configuration, showing the modal through `showModal` function and more importantly the decoupled/rewritten props `children` and `buttons`. This pattern can be used for complex, verbose or state dependent content.
+
+![example3](https://user-images.githubusercontent.com/13068594/226135165-5812a194-bb99-4a2c-bc17-936604a7c2ef.jpg)
+
+> _Alternative usage: config through hook inital config, modal shown with `showModal`, rewritten `buttons` and `children` Modal props_.
 
 ## API
 
@@ -181,7 +233,8 @@ Your modal is supposed to have (or extend) the same shape of hook configuration 
 | ---------------- | ---------------- | ----------- | --------------------------------------- |
 | `open`           | `boolean`        | `false`     | Whether the modal is currently open     |
 | `title?`         | `string`         | `undefined` | The title of the modal                  |
-| `showCloseIcon?` | `boolean`        | `undefined` | The content to display within the modal |
+| `showCloseIcon?` | `boolean`        | `undefined` | Whether to show top right close icon    |
+| `children?`      | `ReactNode`      | `undefined` | The content to display within the modal |
 | `buttons?`       | `IModalButton[]` | `undefined` | Whether the modal is currently open     |
 
 ### Buttons
