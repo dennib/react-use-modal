@@ -6,8 +6,9 @@ react-use-modal is a custom hook that provides a flexible and reusable way to ma
 
 ## Highlights
 
-- Great **flexibiliy** with single _jsx_ tag updated dynamically
-- Small and minified **bundle size**
+- Great **flexibiliy**: use a single `jsx` tag updated dynamically for all the modals in you page...
+- ...or decouple part of the logic from the hook and manage it yourself in your page/component
+- **Small** and minified **bundle size**
 - Type safe with **TypeScript**
 
 ## Table of Contents
@@ -82,12 +83,15 @@ const MyPageComponent = () => {
   return (
     <>
       ...Some page content here...
-      <button onClick={handleOpenModal}>Open Modal</button>
+      <div onClick={handleOpenModal} className="btn">Show modal</div>
       <Modal {...modalConfig} />
     </>
   );
 };
 ```
+
+![example1](https://user-images.githubusercontent.com/13068594/226113275-1ede9847-f6e8-4e97-87d0-d353bee5f4e0.jpg)
+> _Basic example: click on "Show modal" button will execute `setModalConfig` with the config we defined_.
 
 ## API
 
