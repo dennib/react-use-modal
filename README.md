@@ -1,4 +1,6 @@
-# react-use-modal
+# useModal
+
+![banner](https://user-images.githubusercontent.com/13068594/226100508-84efce17-4f13-4800-a507-ba9ac42e8f26.jpg)
 
 react-use-modal is a custom hook that provides a flexible and reusable way to manage modals in React applications.
 
