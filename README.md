@@ -406,6 +406,8 @@ This is project is built with 💙 on top of:
 
 - [Terser](https://terser.org/): _JavaScript mangler and compressor toolkit for ES6+_
 
+- [Babel](https://babeljs.io/): _A JavaScript compiler_
+
 - [Typescript](https://www.typescriptlang.org/): _A strongly typed programming language that builds on JavaScript_
 
 ## Contributors
