@@ -23,6 +23,7 @@ In its basic implementation `useModal` lets you manage multiple modals in page i
   - [Alternative](#alternative)
     - [Partial config update](#update-current-config-partially)
     - [Decoupled logic](#decoupled-logic)
+- [Modal Component](#modal-component-coming-soon)
 - [API](#api)
   - [Properties and methods](#properties-and-methods)
   - [Hook configuration / Modal props](#hook-configuration--modal-props)
@@ -206,6 +207,145 @@ Here yoy can see an example of `useModal` usage with non-empty initial configura
 ![example3](https://user-images.githubusercontent.com/13068594/226135165-5812a194-bb99-4a2c-bc17-936604a7c2ef.jpg)
 
 > _Alternative usage: config through hook inital config, modal shown with `showModal`, rewritten `buttons` and `children` Modal props_.
+
+## Modal Component (coming soon)
+
+At the moment we **don't provide** the `Modal component`. The hook provides config and functions, you are supposed to adjust your Modal component to them. Soon we will provide an official Modal too. In the meantime you can find below an example of how we implemented the Modal for the examples seen in this doc.
+
+```tsx
+// Modal.tsx
+
+import { ModalProps } from "react-use-modal";
+import styles from "./Modal.module.css";
+
+export const Modal = ({
+  open,
+  title,
+  children,
+  handleClose,
+  showCloseIcon,
+  buttons,
+}: ModalProps) => {
+  return open ? (
+    <>
+      <div className={styles.modalBody}>
+        {showCloseIcon && (
+          <div className={styles.close} onClick={handleClose}></div>
+        )}
+        <div className={styles.title}>{title}</div>
+        <div className={styles.message}>{children}</div>
+
+        <ModalActions handleClose={handleClose} buttons={buttons} />
+      </div>
+      <div className={styles.overlay} onClick={handleClose}></div>
+    </>
+  ) : null;
+};
+```
+
+```tsx
+// ModalActions.tsx
+
+import { ModalProps } from "react-use-modal";
+import styles from "./Modal.module.css";
+
+export const ModalActions = ({
+  buttons,
+  handleClose,
+}: Pick<ModalProps, "buttons" | "handleClose">) => (
+  <div className={styles.actions}>
+    {buttons?.map(({ text, disableClose, disabled, onClick, style }, idx) => {
+      const handleClick = () => {
+        !disabled && onClick?.();
+        if (!disableClose) handleClose();
+      };
+      return (
+        <div
+          key={idx}
+          onClick={handleClick}
+          className={styles.btn}
+          style={style}
+        >
+          {text}
+        </div>
+      );
+    })}
+  </div>
+);
+```
+
+<details>
+  <summary>See CSS Code</summary>
+
+```css
+/* Modal.module.css */
+
+.overlay {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modalBody {
+  position: absolute;
+  min-width: 300px;
+  max-width: 500px;
+  min-height: 100px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border-radius: 10px;
+  z-index: 2;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.5);
+  padding: 15px;
+}
+
+.title {
+  font-weight: bold;
+  margin-top: 20px;
+  font-size: 22px;
+}
+
+.message {
+  margin: 20px;
+  font-size: 16px;
+}
+
+.close:after {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  line-height: 1em;
+  font-size: 40px;
+  display: block;
+  content: "\00d7";
+  cursor: pointer;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.btn {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid grey;
+  text-align: center;
+  min-width: 80px;
+  cursor: pointer;
+}
+```
+
+  </details>
 
 ## API
 
