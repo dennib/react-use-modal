@@ -209,6 +209,8 @@ Here yoy can see an example of `useModal` usage with non-empty initial configura
 
 > _Alternative usage: config through hook inital config, modal shown with `showModal`, rewritten `buttons` and `children` Modal props_.
 
+---
+
 ## Modal Component (coming soon)
 
 At the moment we **don't provide** the `Modal component`. The hook provides config and functions, you are supposed to adjust your Modal component to them. Soon we will provide an official Modal too. In the meantime you can find below an example of how we implemented the Modal for the examples seen in this doc.
@@ -348,6 +350,8 @@ export const ModalActions = ({
 
   </details>
 
+---
+
 ## API
 
 ### Properties and methods
@@ -389,6 +393,8 @@ Your modal is supposed to have (or extend) the same shape of hook configuration 
 | `onClick?`      | `() => void `   | `undefined` | A function to execute when the button is clicked                |
 | `disabled?`     | `boolean`       | `undefined` | Whether the button should be disabled                           |
 | `disableClose?` | `boolean`       | `undefined` | Whether the modal should be kept open after clicking the button |
+
+---
 
 ## Technologies
 
