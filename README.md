@@ -38,7 +38,7 @@ In its basic implementation `useModal` lets you manage multiple modals in page i
 To install the package, you can use npm or yarn:
 
 ```bash
-npm install react-use-modal
+npm install @dinneb/react-use-modal
 ```
 
 ## Usage
@@ -48,7 +48,7 @@ npm install react-use-modal
 1. **Import** the `useModal` hook
 
 ```jsx
-import { useModal } from "react-use-modal";
+import { useModal } from "@dinneb/react-use-modal";
 ```
 
 2. **Call the hook** to get modal configuration and relative helper functions: `modalConfig` and `setModalConfig`.
@@ -218,7 +218,7 @@ At the moment we **don't provide** the `Modal component`. The hook provides conf
 ```tsx
 // Modal.tsx
 
-import { ModalProps } from "react-use-modal";
+import { ModalProps } from "@dinneb/react-use-modal";
 import styles from "./Modal.module.css";
 
 export const Modal = ({
@@ -249,7 +249,7 @@ export const Modal = ({
 ```tsx
 // ModalActions.tsx
 
-import { ModalProps } from "react-use-modal";
+import { ModalProps } from "@dinneb/react-use-modal";
 import styles from "./Modal.module.css";
 
 export const ModalActions = ({
