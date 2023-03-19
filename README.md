@@ -2,7 +2,7 @@
 
 ![banner2](https://user-images.githubusercontent.com/13068594/226136792-623a7e44-d93a-4b04-b8b4-2ff7c6f40336.jpg)
 
-![npm](https://img.shields.io/npm/v/@dinneb/react-use-modal?style=flat-square) 
+![npm](https://img.shields.io/npm/v/@dinneb/react-use-modal?style=flat-square)
 ![npm bundle size](https://img.shields.io/bundlephobia/min/@dinneb/react-use-modal@1.0.2?color=%2326b0b2&style=flat-square)
 ![GitHub last commit](https://img.shields.io/github/last-commit/dennib/react-use-modal?color=%230f7f89&style=flat-square)
 
@@ -42,7 +42,13 @@ In its basic implementation `useModal` lets you manage multiple modals in page i
 To install the package, you can use npm or yarn:
 
 ```bash
-npm install @dinneb/react-use-modal
+npm install @dinneb/react-use-modal --save
+```
+
+or
+
+```bash
+yarn add @dinneb/react-use-modal
 ```
 
 ## Usage
@@ -175,7 +181,7 @@ const initialModalConfig = {
 };
 
 const MyPageComponent = () => {
-  const { modalConfig, showModal } = useModal();
+  const { modalConfig, showModal } = useModal(initialModalConfig);
   const [isSomethingActive, setIsSomethingActive] = useState < boolean > false;
 
   const currentButtons: IModalButton[] = isSomethingActive
