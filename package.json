@@ -1,9 +1,17 @@
 {
-  "name": "react-use-modal",
-  "version": "0.0.1",
-  "description": "A custom hook for easy and quick modal management for React",
-  "main": "index.js",
+  "name": "@dinneb/react-use-modal",
+  "version": "1.0.1",
+  "description": "A custom hook that provides a flexible and reusable way to manage  multiple modals in React applications.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
   "scripts": {
+    "build": "rollup -c",
+    "clean": "rm -rf dist",
+    "prepub": "npm-run-all clean build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -14,7 +22,9 @@
     "react",
     "typescript",
     "modal",
-    "dialog"
+    "dialog",
+    "hook",
+    "custom hook"
   ],
   "author": "Denni Bevilacqua",
   "license": "ISC",
@@ -22,9 +32,19 @@
     "url": "https://github.com/dennib/useModal/issues"
   },
   "homepage": "https://github.com/dennib/useModal#readme",
-  "devDependencies": {
-    "@types/react": "^18.0.28",
+  "peerDependencies": {
     "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-babel": "^6.0.3",
+    "@rollup/plugin-terser": "^0.4.0",
+    "@types/react": "^18.0.28",
+    "babel-core": "^6.26.3",
+    "babel-runtime": "^6.26.0",
+    "npm-run-all": "^4.1.5",
+    "rollup": "^3.19.1",
+    "rollup-plugin-typescript2": "^0.34.1",
     "typescript": "^4.9.5"
   }
 }
