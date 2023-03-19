@@ -1,6 +1,6 @@
 {
   "name": "@dinneb/react-use-modal",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A custom hook that provides a flexible and reusable way to manage  multiple modals in React applications.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
