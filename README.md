@@ -2,6 +2,10 @@
 
 ![banner2](https://user-images.githubusercontent.com/13068594/226136792-623a7e44-d93a-4b04-b8b4-2ff7c6f40336.jpg)
 
+![npm](https://img.shields.io/npm/v/@dinneb/react-use-modal?style=flat-square) 
+![npm bundle size](https://img.shields.io/bundlephobia/min/@dinneb/react-use-modal@1.0.2?color=%2326b0b2&style=flat-square)
+![GitHub last commit](https://img.shields.io/github/last-commit/dennib/react-use-modal?color=%230f7f89&style=flat-square)
+
 react-use-modal is a custom hook that provides a flexible and reusable way to manage modals in React applications.
 
 Use a single line of `jsx` tag to insert your `Modal component` in page and use `useModal` configuration as props. Then go from there: update the same modal with dynamic content with functions provided by the hook.
