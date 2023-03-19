@@ -28,6 +28,7 @@ In its basic implementation `useModal` lets you manage multiple modals in page i
   - [Properties and methods](#properties-and-methods)
   - [Hook configuration / Modal props](#hook-configuration--modal-props)
   - [Buttons](#buttons)
+- [Technologies](#technologies)
 - [Contributors](#contributors)
 
 ---
@@ -388,6 +389,18 @@ Your modal is supposed to have (or extend) the same shape of hook configuration 
 | `onClick?`      | `() => void `   | `undefined` | A function to execute when the button is clicked                |
 | `disabled?`     | `boolean`       | `undefined` | Whether the button should be disabled                           |
 | `disableClose?` | `boolean`       | `undefined` | Whether the modal should be kept open after clicking the button |
+
+## Technologies
+
+This is project is built with 💙 on top of:
+
+- [React.js](https://react.dev/): _The library for web and native user interfaces_
+
+- [Rollup](https://rollupjs.org/): _The JavaScript module bundler_
+
+- [Terser](https://terser.org/): _JavaScript mangler and compressor toolkit for ES6+_
+
+- [Typescript](https://www.typescriptlang.org/): _A strongly typed programming language that builds on JavaScript_
 
 ## Contributors
 
