@@ -1,7 +1,7 @@
 {
-  "name": "react-use-modal",
-  "version": "0.0.1",
-  "description": "A custom hook for easy and quick modal management for React",
+  "name": "@dinneb/react-use-modal",
+  "version": "1.0.1",
+  "description": "A custom hook that provides a flexible and reusable way to manage  multiple modals in React applications.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "type": "module",
@@ -22,7 +22,9 @@
     "react",
     "typescript",
     "modal",
-    "dialog"
+    "dialog",
+    "hook",
+    "custom hook"
   ],
   "author": "Denni Bevilacqua",
   "license": "ISC",
