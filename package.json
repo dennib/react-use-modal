@@ -12,6 +12,7 @@
     "build": "rollup -c",
     "clean": "rm -rf dist",
     "prepub": "npm-run-all test clean build",
+    "prepublishOnly": "npm test",
     "test": "jest"
   },
   "repository": {
