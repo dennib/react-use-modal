@@ -11,7 +11,7 @@
   "scripts": {
     "build": "rollup -c",
     "clean": "rm -rf dist",
-    "prepub": "npm-run-all clean build",
+    "prepub": "npm-run-all test clean build",
     "test": "jest"
   },
   "repository": {
